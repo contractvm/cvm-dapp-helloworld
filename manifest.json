@@ -1,6 +1,6 @@
 {
-	"name": "blockstore",
+	"name": "helloworld",
 	"version": "0.1",
 	"authors": ["Davide Gessa"],
-	"description": "A key-value decentralized storage"
+	"description": "decentralized helloworld"
 }
