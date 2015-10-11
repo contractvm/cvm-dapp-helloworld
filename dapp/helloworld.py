@@ -88,7 +88,7 @@ class helloworld (dapp.Dapp):
 	def __init__ (self, chain, db, dht, apimaster):
 		self.core = HelloWorldCore (chain, db)
 		api = HelloWorldAPI (self.core, dht, apimaster)
-		super (HelloWorldDapp, self).__init__(HelloWorldProto.DAPP_CODE, HelloWorldProto.METHOD_LIST, chain, db, dht, api)
+		super (helloworld, self).__init__(HelloWorldProto.DAPP_CODE, HelloWorldProto.METHOD_LIST, chain, db, dht, api)
 
 	def handleMessage (self, m):
 		if m.Method == HelloWorldProto.METHOD_HELLO:
