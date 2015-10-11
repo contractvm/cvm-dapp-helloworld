@@ -6,12 +6,12 @@
 from setuptools import find_packages
 from setuptools import setup
 
-setup(name='blockstore',
+setup(name='helloworld',
 	version='0.0.1',
-	description='Blockstore dapp library',
+	description='contractvm helloworld dapp',
 	author='Davide Gessa',
 	setup_requires='setuptools',
 	author_email='gessadavide@gmail.com',
 	package_dir={'':'library'},
-	packages=['blockstore']
+	packages=['helloworld']
 )

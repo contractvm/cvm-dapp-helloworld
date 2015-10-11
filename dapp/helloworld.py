@@ -4,9 +4,9 @@
 
 import logging
 
-from .. import config, dapp
-from ..proto import Protocol
-from ..chain.message import Message
+from contractvmd import config, dapp
+from contractvmd.proto import Protocol
+from contractvmd.chain.message import Message
 
 logger = logging.getLogger(config.APP_NAME)
 
@@ -20,7 +20,7 @@ class HelloWorldMessage (Message):
 	def hello (name):
 		m = HelloWorldMessage ()
 		m.Name = name
-		m.PluginCode = HelloWorldProto.DAPP_CODE
+		m.DappCode = HelloWorldProto.DAPP_CODE
 		m.Method = HelloWorldProto.METHOD_HELLO
 		return m
 
@@ -88,7 +88,7 @@ class HelloWorldDapp (dapp.Dapp):
 	def __init__ (self, chain, db, dht, apimaster):
 		self.core = HelloWorldCore (chain, db)
 		api = HelloWorldAPI (self.core, dht, apimaster)
-		super (HelloWorldDapp, self).__init__("HW", HelloWorldProto.DAPP_CODE, HelloWorldProto.METHOD_LIST, chain, db, dht, api)
+		super (HelloWorldDapp, self).__init__(HelloWorldProto.DAPP_CODE, HelloWorldProto.METHOD_LIST, chain, db, dht, api)
 
 	def handleMessage (self, m):
 		if m.Method == HelloWorldProto.METHOD_HELLO:
