@@ -37,8 +37,9 @@ class HelloWorldMessage (Message):
 
 
 class HelloWorldAPI (dapp.API):
-	def __init__ (self, vm, dht, api):
+	def __init__ (self, core, dht, api):
 		self.api = api
+		self.core = core
 		rpcmethods = {}
 
 		rpcmethods["get_names"] = {
@@ -57,12 +58,12 @@ class HelloWorldAPI (dapp.API):
 		#self.method_hello ('test')
 
 	def method_get_names (self):
-		return (self.vm.getNames ())
+		return (self.core.getNames ())
 
 	def method_hello (self, name):
 		message = HelloWorldMessage.hello (name)
 		[datahash, outscript, tempid] = message.toOutputScript (self.dht)
-		r = { "outscript": outscript, "datahash": datahash, "tempid": tempid, "fee": Protocol.estimateFee (self.vm.getChainCode (), 100 * len (name)) }
+		r = { "outscript": outscript, "datahash": datahash, "tempid": tempid, "fee": Protocol.estimateFee (self.core.getChainCode (), 100 * len (name)) }
 		return r
 
 
