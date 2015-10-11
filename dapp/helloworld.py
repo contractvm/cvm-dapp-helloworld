@@ -54,7 +54,7 @@ class HelloWorldAPI (dapp.API):
 
 		errors = {}
 
-		super (HelloWorldAPI, self).__init__(vm, dht, rpcmethods, errors)
+		super (HelloWorldAPI, self).__init__(core, dht, rpcmethods, errors)
 		#self.method_hello ('test')
 
 	def method_get_names (self):
