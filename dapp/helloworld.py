@@ -84,7 +84,7 @@ class HelloWorldCore (dapp.Core):
 		return self.database.get ('names')
 	
 
-class HelloWorldDapp (dapp.Dapp):
+class helloworld (dapp.Dapp):
 	def __init__ (self, chain, db, dht, apimaster):
 		self.core = HelloWorldCore (chain, db)
 		api = HelloWorldAPI (self.core, dht, apimaster)
