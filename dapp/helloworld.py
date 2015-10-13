@@ -11,7 +11,7 @@ from contractvmd.chain.message import Message
 logger = logging.getLogger(config.APP_NAME)
 
 class HelloWorldProto:
-	DAPP_CODE = 0x05
+	DAPP_CODE = [ 0x01, 0x06 ]
 	METHOD_HELLO = 0x01
 	METHOD_LIST = [METHOD_HELLO]
 
