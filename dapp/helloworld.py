@@ -62,9 +62,7 @@ class HelloWorldAPI (dapp.API):
 
 	def method_hello (self, name):
 		message = HelloWorldMessage.hello (name)
-		[datahash, outscript, tempid] = message.toOutputScript (self.dht)
-		r = { "outscript": outscript, "datahash": datahash, "tempid": tempid, "fee": Protocol.estimateFee (self.core.getChainCode (), 100 * len (name)) }
-		return r
+		return self.createTransactionResponse (message)
 
 
 class HelloWorldCore (dapp.Core):
@@ -83,7 +81,7 @@ class HelloWorldCore (dapp.Core):
 
 	def getNames (self):
 		return self.database.get ('names')
-	
+
 
 class helloworld (dapp.Dapp):
 	def __init__ (self, chain, db, dht, apimaster):
@@ -95,5 +93,3 @@ class helloworld (dapp.Dapp):
 		if m.Method == HelloWorldProto.METHOD_HELLO:
 			logger.pluginfo ('Found new message %s: hello %s', m.Hash, m.Data['name'])
 			self.core.addName (m.Data['name'])
-			
-		
