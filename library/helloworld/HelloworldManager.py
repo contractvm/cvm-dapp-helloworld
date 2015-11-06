@@ -7,11 +7,10 @@ from libcontractvm import Wallet, ConsensusManager, DappManager
 class HelloworldManager (DappManager.DappManager):
 	def __init__ (self, consensusManager, wallet = None):
 		super (HelloworldManager, self).__init__(consensusManager, wallet)
-			
+
 	def sendName (self, name):
-		cid = self._produce_transaction ('helloworld.hello', [name])
+		cid = self.produceTransaction ('helloworld.hello', [name])
 		return cid
-	
+
 	def getNames (self):
 		return self.consensusManager.jsonConsensusCall ('helloworld.get_names', [])['result']
-
