@@ -7,7 +7,7 @@ from setuptools import find_packages
 from setuptools import setup
 
 setup(name='helloworld',
-	version='0.0.2',
+	version='0.1',
 	description='contractvm helloworld dapp',
 	author='Davide Gessa',
 	setup_requires='setuptools',

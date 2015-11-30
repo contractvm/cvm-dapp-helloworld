@@ -3,17 +3,14 @@
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-from libcontractvm import Wallet, WalletNode, ConsensusManager
+from libcontractvm import Wallet, WalletExplorer, ConsensusManager
 from helloworld import HelloworldManager
 import config
 
 consMan = ConsensusManager.ConsensusManager ()
 consMan.addNode ("http://127.0.0.1:8181")
-#consMan.addNode ("http://127.0.0.1:2819")
-#consMan.addNode ("http://127.0.0.1:2820")
 
-wallet=WalletNode.WalletNode (chain='XLT', url=config.WALLET_NODE_URL, wallet_file='data/test_xltnode_a.wallet')
-			
+wallet = WalletExplorer.WalletExplorer (wallet_file='test.wallet')
 helloworldMan = HelloworldManager.HelloworldManager (consMan, wallet=wallet)
 
 yname = input ('Insert a name to greet: ')
