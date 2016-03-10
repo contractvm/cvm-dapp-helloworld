@@ -5,10 +5,10 @@
 
 from libcontractvm import Wallet, WalletExplorer, ConsensusManager
 from helloworld import HelloworldManager
-import config
+
 
 consMan = ConsensusManager.ConsensusManager ()
-consMan.addNode ("http://127.0.0.1:8181")
+consMan.bootstrap ("http://127.0.0.1:8181")
 
 wallet = WalletExplorer.WalletExplorer (wallet_file='test.wallet')
 helloworldMan = HelloworldManager.HelloworldManager (consMan, wallet=wallet)
